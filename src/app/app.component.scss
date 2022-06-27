@@ -1,0 +1,23 @@
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    position: sticky;
+    top: 0;
+
+    .options {
+      display: inherit;
+      flex-direction: row;
+      justify-items: center;
+      
+      font-size: small;
+    }
+  }
+  
+  app-wrapper {
+    width: 90%;
+    margin: auto;
+  }
+}
+

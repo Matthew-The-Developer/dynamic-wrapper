@@ -1,0 +1,29 @@
+mat-card {
+  padding: 0;
+  border-radius: 0;
+
+  mat-toolbar {
+    height: 36px;
+    padding-right: unset;
+
+    .mat-subheading-1 {
+      margin-bottom: unset;
+    }
+  }
+
+  mat-card-content {
+    display: flex;
+    flex-direction: row;
+  
+    .left {
+      height: auto;
+      padding: 1rem;
+    }
+    
+    .right {
+      height: auto;
+      padding: 1rem;
+      border-left: 1px solid lightgray;
+    }
+  }
+}
