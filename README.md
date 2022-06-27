@@ -18,6 +18,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+Run `ng build --base-href "https://Matthew-The-Developer.github.io/dynamic-wrapper/"` to build the project for [GitHub Pages](https://matthew-the-developer.github.io/dynamic-wrapper/). The build artifacts will be stored in the `dist/` directory.
+
+## Deploy
+
+Run `npx angular-cli-ghpages --dir=dist/dynamic-wrapper` to deploy the current build of the project to [GitHub Pages](https://matthew-the-developer.github.io/dynamic-wrapper/).
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
