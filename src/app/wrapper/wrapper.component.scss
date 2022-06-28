@@ -12,6 +12,8 @@ mat-card {
   }
 
   mat-card-content {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
   
@@ -24,6 +26,10 @@ mat-card {
       height: auto;
       padding: 1rem;
       border-left: 1px solid lightgray;
+    }
+    
+    .over {
+      background: white;
     }
   }
 }

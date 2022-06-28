@@ -21,7 +21,7 @@
 
           <mat-form-field appearance="fill">
             <mat-label>Drawer Mode</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="mode">
               <mat-option *ngFor="let mode of modes" [value]="mode">
                 {{mode | titlecase}}
               </mat-option>
@@ -36,6 +36,7 @@
       [leftWidth]="leftWidth"
       [rightWidth]="rightWidth"
       [isOpen]="isOpen"
+      [mode]="mode"
     >
       <div left>
         <app-left
