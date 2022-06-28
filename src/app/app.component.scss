@@ -3,21 +3,22 @@ mat-sidenav-content {
   flex-direction: column;
 
   .header {
+    z-index: 2;
     position: sticky;
     top: 0;
 
     .options {
-      display: inherit;
-      flex-direction: row;
-      justify-items: center;
-      
       font-size: small;
+
+      .hide-hint .mat-form-field-wrapper {
+        margin-bottom: -1.25em;
+      }
     }
   }
   
   app-wrapper {
-    width: 90%;
-    margin: auto;
+    width: 95%;
+    margin: 1rem auto;
   }
 }
 

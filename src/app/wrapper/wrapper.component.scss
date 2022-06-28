@@ -11,25 +11,23 @@ mat-card {
     }
   }
 
-  mat-card-content {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
+  mat-drawer-container {
+    background: inherit;
   
     .left {
       height: auto;
       padding: 1rem;
     }
+
+    mat-drawer {
+      padding: 1rem;
+      box-shadow: none;
+      border-left: 1px solid lightgray;
+    }
     
     .right {
       height: auto;
       padding: 1rem;
-      border-left: 1px solid lightgray;
-    }
-    
-    .over {
-      background: white;
     }
   }
 }

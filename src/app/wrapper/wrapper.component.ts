@@ -23,11 +23,11 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
 
 
   get left(): string {
-    return `0 1 ${this.leftWidth}%`;
+    return `calc(${this.leftWidth}% - 2rem)`;
   }
 
   get right(): string {
-    return `0 0 ${this.rightWidth}%`;
+    return `${this.rightWidth}%`;
   }
 
   get rightChildren () {
@@ -45,7 +45,6 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked(): void {
     const observable = of(this.rightChildren);
     observable.subscribe(right => {
-      console.log(right[0].offsetHeight);
       this.height = this.isOpen ? `calc(${right[0].offsetHeight}px + 2rem)` : 'auto';
       this.cdref.detectChanges();
     });

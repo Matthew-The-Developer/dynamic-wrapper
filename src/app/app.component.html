@@ -1,34 +1,42 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="header">
-      <mat-toolbar-row>
-        <span>Work Item Wrapper</span>
+    <mat-toolbar class="mat-elevation-z2 header">
+      <span>Work Item Wrapper</span>
 
-        <span spacer></span>
-      </mat-toolbar-row>
+      <span spacer></span>
 
-      <mat-toolbar-row>
-        <div class="options">
-          <mat-form-field appearance="fill">
-            <mat-label>Left Side Width</mat-label>
-            <input [(ngModel)]="leftWidth" matInput placeholder="Placeholder">
-          </mat-form-field>
+      <button (click)="legacy()" mat-stroked-button>Legacy</button>
 
-          <mat-form-field appearance="fill">
-            <mat-label>Right Side Width</mat-label>
-            <input [(ngModel)]="rightWidth" matInput placeholder="Placeholder">
-          </mat-form-field>
+      <span spacer="1rem"></span>
 
-          <mat-form-field appearance="fill">
-            <mat-label>Drawer Mode</mat-label>
-            <mat-select [(ngModel)]="mode">
-              <mat-option *ngFor="let mode of modes" [value]="mode">
-                {{mode | titlecase}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </mat-toolbar-row>
+      <button (click)="side()" mat-stroked-button>Side</button>
+
+      <span spacer="1rem"></span>
+
+      <button (click)="over()" mat-stroked-button>Over</button>
+      
+      <span spacer="1rem"></span>
+
+      <div class="options">
+        <mat-form-field appearance="fill" style="margin-bottom: -1.25em">
+          <mat-label>Left Side Width</mat-label>
+          <input [(ngModel)]="leftWidth" matInput placeholder="Placeholder">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" style="margin-bottom: -1.25em">
+          <mat-label>Right Side Width</mat-label>
+          <input [(ngModel)]="rightWidth" matInput placeholder="Placeholder">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" style="margin-bottom: -1.25em">
+          <mat-label>Drawer Mode</mat-label>
+          <mat-select [(ngModel)]="mode">
+            <mat-option *ngFor="let mode of modes" [value]="mode">
+              {{mode | titlecase}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </mat-toolbar>
 
     <app-wrapper 

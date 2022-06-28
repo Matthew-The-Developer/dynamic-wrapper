@@ -21,4 +21,22 @@ export class AppComponent {
   cancel(): void {
     this.isOpen = false;
   }
+
+  legacy(): void {
+    this.leftWidth = 60;
+    this.rightWidth = 40;
+    this.mode = 'over';
+  }
+
+  side(): void {
+    this.leftWidth = 100;
+    this.rightWidth = 40;
+    this.mode = 'side';
+  }
+
+  over(): void {
+    this.leftWidth = 100;
+    this.rightWidth = 40;
+    this.mode = 'over';
+  }
 }
