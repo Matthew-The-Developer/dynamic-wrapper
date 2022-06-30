@@ -16,7 +16,7 @@
     >
       <div 
         [style.width]="left"
-        class="left"
+        class="content"
       >
         <ng-content select="[left]"></ng-content>
       </div>
@@ -26,6 +26,7 @@
         [opened]="isOpen"
         [mode]="mode"
         position="end"
+        class="no-scroll"
       >
         <ng-content select="[right]"></ng-content>
       </mat-drawer>
