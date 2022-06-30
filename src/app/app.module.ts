@@ -10,6 +10,7 @@ import { RightComponent } from './right/right.component';
 import { SpacerDirective } from './directives/spacer.directive';
 import { FormsModule } from '@angular/forms';
 import { RightDirective } from './directives/right.directive';
+import { LeftDirective } from './directives/left.directive';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RightDirective } from './directives/right.directive';
     RightComponent,
     SpacerDirective,
     RightDirective,
+    LeftDirective,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AfterViewChecked, ChangeDetectorRef, Component, ContentChildren, ElementRef, Input, OnInit, QueryList } from '@angular/core';
-import { of } from 'rxjs';
+import { forkJoin, of } from 'rxjs';
+import { LeftDirective } from '../directives/left.directive';
 import { RightDirective } from '../directives/right.directive';
 
 @Component({
@@ -16,6 +17,7 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
   @Input() mode: 'side' | 'over' = 'side';
 
   @ContentChildren(RightDirective, { descendants: true, read: ElementRef }) rights: QueryList<ElementRef> = new QueryList<ElementRef>();
+  @ContentChildren(LeftDirective, { descendants: true, read: ElementRef }) lefts: QueryList<ElementRef> = new QueryList<ElementRef>();
 
   height = 'auto';
 
@@ -30,12 +32,20 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
     return `${this.rightWidth}%`;
   }
 
-  get rightChildren () {
-    if ( this.rights && this.rights.length ) {
-      return this.rights.map((elRef:ElementRef) => elRef.nativeElement);
+  get rightChildren() {
+    if (this.rights?.length) {
+      return this.rights.map((ref: ElementRef) => ref.nativeElement);
+    } else {
+      return [];
     }
-    
-    return [];
+  }
+
+  get leftChildren() {
+    if (this.lefts && this.lefts?.length) {
+      return this.lefts.map((ref: ElementRef) => ref.nativeElement);
+    } else {
+      return [];
+    }
   }
 
   ngOnInit(): void {
@@ -43,9 +53,12 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    const observable = of(this.rightChildren);
-    observable.subscribe(right => {
-      this.height = this.isOpen ? `calc(${right[0].offsetHeight}px + 2rem)` : 'auto';
+    forkJoin([
+      of(this.leftChildren),
+      of(this.rightChildren),
+    ]).subscribe(([left, right]) => {
+      console.log(left[0], right[0]);
+      this.height = this.isOpen && right[0].offsetHeight > left[0].offsetHeight ? `calc(${right[0].offsetHeight}px + 2rem)` : 'auto';
       this.cdref.detectChanges();
     });
   }
