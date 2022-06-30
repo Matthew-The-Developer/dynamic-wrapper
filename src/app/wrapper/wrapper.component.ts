@@ -57,7 +57,6 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
       of(this.leftChildren),
       of(this.rightChildren),
     ]).subscribe(([left, right]) => {
-      console.log(left[0], right[0]);
       this.height = this.isOpen && right[0].offsetHeight > left[0].offsetHeight ? `calc(${right[0].offsetHeight}px + 2rem)` : 'auto';
       this.cdref.detectChanges();
     });
