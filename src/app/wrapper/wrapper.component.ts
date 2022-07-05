@@ -13,6 +13,7 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
   @Input() title: string = '';
   @Input() leftWidth: number = 0;
   @Input() rightWidth: number = 0;
+  @Input() minHeight: string = 'auto';
   @Input() isOpen: boolean = false;
   @Input() mode: 'side' | 'over' = 'side';
   @Output() onClose: EventEmitter<void> = new EventEmitter<void>();
@@ -58,7 +59,7 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
       of(this.leftChildren),
       of(this.rightChildren),
     ]).subscribe(([left, right]) => {
-      this.height = this.isOpen && right[0].offsetHeight > left[0].offsetHeight ? `calc(${right[0].offsetHeight}px + 2rem)` : 'auto';
+      this.height = this.isOpen && right[0].offsetHeight > left[0].offsetHeight ? `calc(${right[0].offsetHeight}px + 2rem)` : this.minHeight;
       this.cdref.detectChanges();
     });
   }
