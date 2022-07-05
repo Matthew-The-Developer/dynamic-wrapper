@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { AfterViewChecked, ChangeDetectorRef, Component, ContentChildren, ElementRef, Input, OnInit, QueryList } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, ContentChildren, ElementRef, EventEmitter, Input, OnInit, Output, QueryList } from '@angular/core';
 import { forkJoin, of } from 'rxjs';
 import { LeftDirective } from '../directives/left.directive';
 import { RightDirective } from '../directives/right.directive';
@@ -15,6 +15,7 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
   @Input() rightWidth: number = 0;
   @Input() isOpen: boolean = false;
   @Input() mode: 'side' | 'over' = 'side';
+  @Output() onClose: EventEmitter<void> = new EventEmitter<void>();
 
   @ContentChildren(RightDirective, { descendants: true, read: ElementRef }) rights: QueryList<ElementRef> = new QueryList<ElementRef>();
   @ContentChildren(LeftDirective, { descendants: true, read: ElementRef }) lefts: QueryList<ElementRef> = new QueryList<ElementRef>();
@@ -60,5 +61,9 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
       this.height = this.isOpen && right[0].offsetHeight > left[0].offsetHeight ? `calc(${right[0].offsetHeight}px + 2rem)` : 'auto';
       this.cdref.detectChanges();
     });
+  }
+
+  close(): void {
+    this.onClose.emit();
   }
 }

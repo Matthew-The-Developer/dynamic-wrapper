@@ -39,12 +39,13 @@
       </div>
     </mat-toolbar>
 
-    <app-wrapper 
-      title="Test"
+    <app-wrapper
+      (onClose)="close()"
       [leftWidth]="leftWidth"
       [rightWidth]="rightWidth"
       [isOpen]="isOpen"
       [mode]="mode"
+      title="Test"
     >
       <div left>
         <app-left

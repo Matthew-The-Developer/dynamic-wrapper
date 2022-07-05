@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,20 @@ export class AppComponent {
   mode: 'side' | 'over' = 'side';
   modes = ['side', 'over'];
 
+  constructor(private _snackBar: MatSnackBar) { }
+
   open(): void {
     this.isOpen = true;
   }
 
   cancel(): void {
     this.isOpen = false;
+  }
+
+  close(): void {
+    this._snackBar.open('Work item has been closed', 'Dismiss', {
+      duration: 3000
+    });
   }
 
   legacy(): void {
