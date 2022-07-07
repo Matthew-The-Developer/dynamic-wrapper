@@ -17,6 +17,10 @@
       
       <span spacer="1rem"></span>
 
+      <mat-slide-toggle [(ngModel)]="nested" class="mat-body">Is Nested</mat-slide-toggle>
+
+      <span spacer="1rem"></span>
+
       <div class="options">
         <mat-form-field appearance="fill" style="margin-bottom: -1.25em">
           <mat-label>Left Side Width</mat-label>
@@ -44,6 +48,7 @@
       [leftWidth]="leftWidth"
       [rightWidth]="rightWidth"
       [isOpen]="isOpen"
+      [isNested]="nested"
       [mode]="mode"
       title="Test"
     >

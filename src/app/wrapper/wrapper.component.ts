@@ -15,6 +15,7 @@ export class WrapperComponent implements OnInit, AfterViewChecked {
   @Input() rightWidth: number = 0;
   @Input() minHeight: string = 'auto';
   @Input() isOpen: boolean = false;
+  @Input() isNested: boolean = false;
   @Input() mode: 'side' | 'over' = 'side';
   @Output() onClose: EventEmitter<void> = new EventEmitter<void>();
 

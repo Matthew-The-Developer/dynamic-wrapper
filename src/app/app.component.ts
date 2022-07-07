@@ -13,6 +13,7 @@ export class AppComponent {
   leftWidth: number = 60;
   rightWidth: number = 40;
   mode: 'side' | 'over' = 'side';
+  nested: boolean = false;
   modes = ['side', 'over'];
 
   constructor(private _snackBar: MatSnackBar) { }
