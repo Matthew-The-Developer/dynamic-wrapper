@@ -1,5 +1,5 @@
 <mat-card [class.mat-elevation-z0]="isNested">
-  <mat-toolbar color="primary">
+  <mat-toolbar *ngIf="!isNested" color="primary">
     <span class="mat-subheading-1">{{ title }}</span>
 
     <span spacer></span>
